@@ -189,4 +189,5 @@ def upd(message):
 def upd(message):
    print(upd)
 """
-bot.polling(none_stop=True,interval=0)
+while(True):
+    bot.polling(none_stop=True,interval=0)
