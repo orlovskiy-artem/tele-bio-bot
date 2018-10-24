@@ -1,1 +1,1 @@
-bot: python main.py
+bot: gunicorn run_server.py:server
