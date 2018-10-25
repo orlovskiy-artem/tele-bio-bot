@@ -191,5 +191,9 @@ def upd(message):
 def upd(message):
    print(upd)
 """
-if __name__ == "__main__":
-    bot.polling(none_stop=True,interval=0)
+while(True):
+    try:
+        if __name__ == "__main__":
+            bot.polling(none_stop=True,interval=0)
+    except:
+        pass
