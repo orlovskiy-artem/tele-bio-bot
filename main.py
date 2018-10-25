@@ -18,6 +18,7 @@ hour = now.hour
 
 @bot.message_handler(commands = ['start'])
 def handle_command(message):
+    print(last_upd)
     bot.send_message(message.chat.id,"""Добрий день!
 Вас вітає бот (тільки для біологів). Я супер продвинутий. Майже штучний інтелект. Тільки думати я не вмію, а так нічого. Я працюю з певними командами. Натисніть "/" для їх перегляду. Приємного вам користування.
     
