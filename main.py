@@ -104,7 +104,7 @@ def handle_command(message):
     4) Хімія лаб корпус ННЦ, ауд. 31""")
 
     if today_weekday >= 4:
-         bot.send_sticker(message.chat.id,sticker = 'AAQCABM9G_MOAATeFc8WScijaOZIAAIC')
+         bot.send_sticker(message.chat.id,'AAQCABM9G_MOAATeFc8WScijaOZIAAIC')
 
 @bot.message_handler(commands = ['week'])
 def handle_command(message):
