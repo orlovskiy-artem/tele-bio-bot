@@ -4,13 +4,13 @@ import constants
 import datetime
 
 bot = telebot.TeleBot(constants.token)
-"""
+
 upd = bot.get_updates()
 print(upd)
 last_upd = upd[-1]
 message_from_user = last_upd.message
 print(message_from_user)
-"""
+
 now_start = datetime.datetime.now()
 now =  datetime.datetime.now()
 today = now.day
