@@ -19,6 +19,10 @@ hour = now.hour
 
 @bot.message_handler(commands = ['start'])
 def handle_command(message):
+    now =  datetime.datetime.now()
+    today = now.day
+    today_weekday = datetime.datetime.today().weekday()
+    hour = now.hour
     bot.send_message(382026046,now)
     bot.send_message(message.chat.id,"""Добрий день!
 Вас вітає бот (тільки для біологів). Я супер продвинутий. Майже штучний інтелект. Тільки думати я не вмію, а так нічого. Я працюю з певними командами. Натисніть "/" для їх перегляду. Приємного вам користування.
@@ -29,11 +33,20 @@ def handle_command(message):
 
 @bot.message_handler(commands = ['help'])
 def handle_command(message):
+    now =  datetime.datetime.now()
+    today = now.day
+    today_weekday = datetime.datetime.today().weekday()
+    hour = now.hour
+
     bot.send_message(message.chat.id,"Вам не потрібна допомога. Нє, ну а що тут складного? :)")
 
 
 @bot.message_handler(commands = ['today'])
 def handle_command(message):
+    now =  datetime.datetime.now()
+    today = now.day
+    today_weekday = datetime.datetime.today().weekday()
+    hour = now.hour
     if today_weekday == 0:
         bot.send_message(message.chat.id,
         """Понеділок
@@ -76,6 +89,10 @@ def handle_command(message):
 
 @bot.message_handler(commands = ['tommorow'])
 def handle_command(message):
+    now =  datetime.datetime.now()
+    today = now.day
+    today_weekday = datetime.datetime.today().weekday()
+    hour = now.hour
     if today_weekday == 0:
         bot.send_message(message.chat.id,
         """Вівторок
@@ -109,6 +126,10 @@ def handle_command(message):
 
 @bot.message_handler(commands = ['week'])
 def handle_command(message):
+    now =  datetime.datetime.now()
+    today = now.day
+    today_weekday = datetime.datetime.today().weekday()
+    hour = now.hour
     bot.send_message(message.chat.id,
     """Понеділок
     1) Іноземна мова, ауд. 602, 603 ММФ
@@ -143,6 +164,10 @@ def handle_command(message):
 
 @bot.message_handler(commands = ['nextweek'])
 def handle_command(message):
+    now =  datetime.datetime.now()
+    today = now.day
+    today_weekday = datetime.datetime.today().weekday()
+    hour = now.hour
     bot.send_message(message.chat.id,
     """Понеділок
     1) Іноземна мова, ауд. 602, 603 ММФ
@@ -178,6 +203,10 @@ def handle_command(message):
 
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
+    now =  datetime.datetime.now()
+    today = now.day
+    today_weekday = datetime.datetime.today().weekday()
+    hour = now.hour
     if message.text == "Windows":
         bot.send_message(message.chat.id,"Linux")
     print("Пришел текст")
@@ -188,6 +217,10 @@ def handle_sticker(message):
 
 @bot.message_handler(content_types=['sticker'])
 def upd(message):
+    now =  datetime.datetime.now()
+    today = now.day
+    today_weekday = datetime.datetime.today().weekday()
+    hour = now.hour
    print(last_upd)
 
 
@@ -204,10 +237,6 @@ while(True):
     try:
 
         if __name__ == "__main__":
-            now =  datetime.datetime.now()
-            today = now.day
-            today_weekday = datetime.datetime.today().weekday()
-            hour = now.hour
             bot.polling(none_stop=True,interval=0)
     except:
         pass
