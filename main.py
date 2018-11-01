@@ -221,6 +221,9 @@ def upd(message):
     today = now.day
     today_weekday = datetime.datetime.today().weekday()
     hour = now.hour
+    upd = bot.get_updates()
+    print(upd)
+    last_upd = upd[-1]
     print(last_upd)
 
 
