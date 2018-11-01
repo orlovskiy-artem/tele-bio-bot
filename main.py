@@ -123,7 +123,7 @@ def handle_command(message):
     3) Цитологія (лаб), група 1, ауд. 517 БФ
     4) Хімія лаб корпус ННЦ, ауд. 31""")
 
-    if today_weekday >= 4:
+    if today_weekday >= 3:
          bot.send_sticker(message.chat.id,'CAADAgADUwADKOeIDc1_Adm2zv4cAg')
 
 @bot.message_handler(commands = ['week'])
