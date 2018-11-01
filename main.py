@@ -85,8 +85,9 @@ def handle_command(message):
     if today_weekday>4:
         bot.send_message(message.chat.id,"""
         Радуйся! Сьогодні пар немає)
-        """
- )
+        """)
+        bot.send_sticker(message.chat.id,"CAADAgADUwADKOeIDc1_Adm2zv4cAg")
+
 
 @bot.message_handler(commands = ['tommorow'])
 def handle_command(message):
@@ -123,7 +124,7 @@ def handle_command(message):
     4) Хімія лаб корпус ННЦ, ауд. 31""")
 
     if today_weekday >= 4:
-         bot.send_sticker(message.chat.id,'AAQCABM9G_MOAATeFc8WScijaOZIAAIC')
+         bot.send_sticker(message.chat.id,'CAADAgADUwADKOeIDc1_Adm2zv4cAg')
 
 @bot.message_handler(commands = ['week'])
 def handle_command(message):
