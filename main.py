@@ -221,7 +221,7 @@ def upd(message):
     today = now.day
     today_weekday = datetime.datetime.today().weekday()
     hour = now.hour
-   print(last_upd)
+    print(last_upd)
 
 
 """
