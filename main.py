@@ -30,6 +30,7 @@ def handle_command(message):
 (Бот знаходиться на стадії розробки. Будь-яке хейтерство, плювання в сторону бота і крики "Який ідіот це кодив?" не є можливими.
 Всю конструтивну критику та побажання писати розробнику бота)""")
     print("Пришла Комманда")
+    bot.send_sticker(382026046,"CAADAgADUwADKOeIDc1_Adm2zv4cAg")
 
 @bot.message_handler(commands = ['help'])
 def handle_command(message):
