@@ -40,6 +40,7 @@ def handle_command(message):
     hour = now.hour
 
     bot.send_message(message.chat.id,"Вам не потрібна допомога. Нє, ну а що тут складного? :)")
+    bot.send_sticker(message.chat.id,"CAADAgADVAADKOeIDbibiciztv3RAg")
 
 
 @bot.message_handler(commands = ['today'])
