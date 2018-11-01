@@ -11,7 +11,8 @@ last_upd = upd[-1]
 message_from_user = last_upd.message
 print(message_from_user)
 """
-now = datetime.datetime.now()
+now_start = datetime.datetime.now()
+now =  datetime.datetime.now()
 today = now.day
 today_weekday = datetime.datetime.today().weekday()
 hour = now.hour
@@ -201,7 +202,12 @@ def upd(message):
 """
 while(True):
     try:
+
         if __name__ == "__main__":
+            now =  datetime.datetime.now()
+            today = now.day
+            today_weekday = datetime.datetime.today().weekday()
+            hour = now.hour
             bot.polling(none_stop=True,interval=0)
     except:
         pass
