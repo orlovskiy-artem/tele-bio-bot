@@ -220,7 +220,11 @@ def handle_command(message):
     hour = now.hour
     delta =datetime.datetime(datetime.datetime.now().year,datetime.datetime.now().month,
                              datetime.datetime.now().day,18,0,0,0) - datetime.datetime.today()
-    bot.send_message(message.chat.id,delta)
+    delta = delta.seconds
+    hours = str(delta//3600)
+    minutes = str((delta - int(hours)*3600)//60)
+    seconds = str(delta - 3600*int(hours)-60*int(minutes))
+    bot.send_message(message.chat.id,"Залишилось " + hours + " годин " + minutes + " хвилин " +  seconds + " секунд")
 
 
 
