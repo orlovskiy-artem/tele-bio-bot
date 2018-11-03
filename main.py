@@ -42,7 +42,6 @@ def handle_command(message):
     bot.send_message(message.chat.id,"Вам не потрібна допомога. Нє, ну а що тут складного? :)")
     bot.send_sticker(message.chat.id,"CAADAgADVAADKOeIDbibiciztv3RAg")
 
-
 @bot.message_handler(commands = ['today'])
 def handle_command(message):
     now =  datetime.datetime.now()
@@ -88,7 +87,6 @@ def handle_command(message):
         Радуйся! Сьогодні пар немає)
         """)
         bot.send_sticker(message.chat.id,"CAADAgADUwADKOeIDc1_Adm2zv4cAg")
-
 
 @bot.message_handler(commands = ['tommorow'])
 def handle_command(message):
@@ -202,6 +200,19 @@ def handle_command(message):
     4) Хімія лаб корпус ННЦ, ауд. 31
 
  """)
+
+@bot.message_handler(commands = ['timetable'])
+def handle_command(message):
+    now =  datetime.datetime.now()
+    today = now.day
+    today_weekday = datetime.datetime.today().weekday()
+    hour = now.hour
+    bot.send_message(message.chat.id,"""1) 8:40 - 10:15
+    2) 10:35 - 12:10
+    3) 12:20 - 13:55
+    4) 14:05 - 15:40""")
+
+
 
 
 @bot.message_handler(content_types=['text'])
