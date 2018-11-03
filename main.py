@@ -220,7 +220,7 @@ def handle_command(message):
     hour = now.hour
     delta =datetime.datetime(datetime.datetime.now().year,datetime.datetime.now().month,
                              datetime.datetime.now().day,18,0,0,0) - datetime.datetime.today()
-    delta = delta.seconds
+    delta = delta.seconds - 7200
     hours = str(delta//3600)
     minutes = str((delta - int(hours)*3600)//60)
     seconds = str(delta - 3600*int(hours)-60*int(minutes))
