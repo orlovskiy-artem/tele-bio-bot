@@ -208,9 +208,19 @@ def handle_command(message):
     today_weekday = datetime.datetime.today().weekday()
     hour = now.hour
     bot.send_message(message.chat.id,"""1) 8:40 - 10:15
-    2) 10:35 - 12:10
-    3) 12:20 - 13:55
-    4) 14:05 - 15:40""")
+2) 10:35 - 12:10
+3) 12:20 - 13:55
+4) 14:05 - 15:40""")
+
+@bot.message_handler(commands = ['left'])
+def handle_command(message):
+    now =  datetime.datetime.now()
+    today = now.day
+    today_weekday = datetime.datetime.today().weekday()
+    hour = now.hour
+    delta =datetime.datetime(datetime.datetime.now().year,datetime.datetime.now().month,
+                             datetime.datetime.now().day,18,0,0,0) - datetime.datetime.today()
+    bot.send_message(message.chat.id,delta)
 
 
 
