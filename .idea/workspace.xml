@@ -16,8 +16,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="221" column="94" selection-start-line="221" selection-start-column="94" selection-end-line="221" selection-end-column="94" />
+            <state relative-caret-position="426">
+              <caret line="226" column="60" selection-start-line="226" selection-start-column="60" selection-end-line="226" selection-end-column="60" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
                 <element signature="e#447#1167#0" />
@@ -87,8 +87,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="953" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="428" />
+    <option name="y" value="-16" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -179,10 +180,10 @@
     <configuration />
   </component>
   <component name="ToolWindowManager">
-    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16132478" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.079557426" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Python Console" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -698,8 +699,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="221" column="94" selection-start-line="221" selection-start-column="94" selection-end-line="221" selection-end-column="94" />
+        <state relative-caret-position="426">
+          <caret line="226" column="60" selection-start-line="226" selection-start-column="60" selection-end-line="226" selection-end-column="60" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
             <element signature="e#447#1167#0" />
