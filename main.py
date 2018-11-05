@@ -215,16 +215,62 @@ def handle_command(message):
 @bot.message_handler(commands = ['left'])
 def handle_command(message):
     now =  datetime.datetime.now()
-    today = now.day
-    today_weekday = datetime.datetime.today().weekday()
-    hour = now.hour
+    hour = now.hour+2
+
+    time_abs_sec = hour*7200 + now.minutes*60 + now.seconds
+
+    # First lesson
+    if(time_abs_sec>=8*7200+40*60 and time_abs_sec<=10*7200+15*60):
+        delta = datetime.datetime(datetime.datetime.now().year,datetime.datetime.now().month,
+                             datetime.datetime.now().day,10,15,0,0) - datetime.datetime.today()
+        delta = delta.seconds - 7200
+        hours = str(delta//3600)
+        minutes = str((delta - int(hours)*3600)//60)
+        seconds = str(delta - 3600*int(hours)-60*int(minutes))
+        bot.send_message(message.chat.id,"Залишилось " + hours + " годин " + minutes + " хвилин " +  seconds + " секунд")
+
+    #Second lesson
+    elif(time_abs_sec>=10*7200+35*60 and time_abs_sec<=12*7200+10*60):
+        delta = datetime.datetime(datetime.datetime.now().year,datetime.datetime.now().month,
+                             datetime.datetime.now().day,12,10,0,0) - datetime.datetime.today()
+        delta = delta.seconds - 7200
+        hours = str(delta//3600)
+        minutes = str((delta - int(hours)*3600)//60)
+        seconds = str(delta - 3600*int(hours)-60*int(minutes))
+        bot.send_message(message.chat.id,"Залишилось " + hours + " годин " + minutes + " хвилин " +  seconds + " секунд")
+
+    #Third lesson
+    elif(time_abs_sec>=12*7200+20*60 and time_abs_sec<=13*7200+55*60):
+        delta = datetime.datetime(datetime.datetime.now().year,datetime.datetime.now().month,
+                             datetime.datetime.now().day,13,55,0,0) - datetime.datetime.today()
+        delta = delta.seconds - 7200
+        hours = str(delta//3600)
+        minutes = str((delta - int(hours)*3600)//60)
+        seconds = str(delta - 3600*int(hours)-60*int(minutes))
+        bot.send_message(message.chat.id,"Залишилось " + hours + " годин " + minutes + " хвилин " +  seconds + " секунд")
+
+    #Fourth lesson
+    elif(time_abs_sec>=14*7200+5*60 and time_abs_sec<=15*7200+40*60):
+        delta = datetime.datetime(datetime.datetime.now().year,datetime.datetime.now().month,
+                             datetime.datetime.now().day,15,40,0,0) - datetime.datetime.today()
+        delta = delta.seconds - 7200
+        hours = str(delta//3600)
+        minutes = str((delta - int(hours)*3600)//60)
+        seconds = str(delta - 3600*int(hours)-60*int(minutes))
+        bot.send_message(message.chat.id,"Залишилось " + hours + " годин " + minutes + " хвилин " +  seconds + " секунд")
+
+    #No lesson
+    else:
+        bot.send_message(message.chat.id,"Зараз немає пар")
+
     delta =datetime.datetime(datetime.datetime.now().year,datetime.datetime.now().month,
                              datetime.datetime.now().day,18,0,0,0) - datetime.datetime.today()
     delta = delta.seconds - 7200
     hours = str(delta//3600)
     minutes = str((delta - int(hours)*3600)//60)
     seconds = str(delta - 3600*int(hours)-60*int(minutes))
-    bot.send_message(message.chat.id,"Залишилось " + hours + " годин " + minutes + " хвилин " +  seconds + " секунд")
+
+    bot.send_message(message.chat.id,"Тест на 18 год. Залишилось " + hours + " годин " + minutes + " хвилин " +  seconds + " секунд")
 
 
 
