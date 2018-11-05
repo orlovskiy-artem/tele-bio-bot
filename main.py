@@ -216,7 +216,7 @@ def handle_command(message):
 def handle_command(message):
     now =  datetime.datetime.now()
     hour = now.hour+2
-    time_abs_sec = hour*7200 + now.minutes*60 + now.seconds
+    time_abs_sec = hour*7200 + now.minute*60 + now.second
 
     # First lesson
     if(time_abs_sec>=8*7200+40*60 and time_abs_sec<=10*7200+15*60):
