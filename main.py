@@ -18,6 +18,7 @@ today_weekday = datetime.datetime.today().weekday()
 hour = now.hour
 
 
+
 @bot.message_handler(commands = ['start'])
 def handle_command(message):
     bot.send_message(message.chat.id,"""Добрий день!
@@ -322,7 +323,7 @@ def handle_text(message):
     today_weekday = datetime.datetime.today().weekday()
     hour = now.hour
     if message.text == "Windows":
-        bot.send_message(message.chat.id,"Linux")
+        bot.send_message(message.chat.id,"*Linux*",parse_mode=telegram.ParseMode.MARKDOWN)
     print("Пришел текст")
 
 
