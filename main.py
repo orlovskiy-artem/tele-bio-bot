@@ -1,4 +1,4 @@
-import flask
+
 import telebot
 import constants
 import datetime
@@ -19,35 +19,23 @@ hour = now.hour
 
 @bot.message_handler(commands = ['start'])
 def handle_command(message):
-    now =  datetime.datetime.now()
-    today = now.day
-    today_weekday = datetime.datetime.today().weekday()
-    hour = now.hour
-    bot.send_message(382026046,now)
     bot.send_message(message.chat.id,"""Добрий день!
-Вас вітає бот (тільки для біологів). Я супер продвинутий. Майже штучний інтелект. Тільки думати я не вмію, а так нічого. Я працюю з певними командами. Натисніть "/" для їх перегляду. Приємного вам користування.
+Вас вітає бот (тільки для біологів). Я працюю з певними командами. Натисніть "/" для їх перегляду. Приємного Вам користування.
     
-(Бот знаходиться на стадії розробки. Будь-яке хейтерство, плювання в сторону бота і крики "Який ідіот це кодив?" не є можливими.
-Всю конструтивну критику та побажання писати розробнику бота)""")
-    print("Пришла Комманда")
-    bot.send_sticker(382026046,"CAADAgADUwADKOeIDc1_Adm2zv4cAg")
+(Бот знаходиться на стадії розробки. Будь-яке хейтерство не є можливим.
+Всю конструтивну критику та побажання писати розробнику бота.""")
+    print("Command start")
 
 @bot.message_handler(commands = ['help'])
 def handle_command(message):
-    now =  datetime.datetime.now()
-    today = now.day
-    today_weekday = datetime.datetime.today().weekday()
-    hour = now.hour
-
     bot.send_message(message.chat.id,"Вам не потрібна допомога. Нє, ну а що тут складного? :)")
     bot.send_sticker(message.chat.id,"CAADAgADVAADKOeIDbibiciztv3RAg")
+    print("Command help")
 
 @bot.message_handler(commands = ['today'])
 def handle_command(message):
-    now =  datetime.datetime.now()
-    today = now.day
+    print("command today")
     today_weekday = datetime.datetime.today().weekday()
-    hour = now.hour
     if today_weekday == 0:
         bot.send_message(message.chat.id,
         """Понеділок
@@ -90,10 +78,8 @@ def handle_command(message):
 
 @bot.message_handler(commands = ['tommorow'])
 def handle_command(message):
-    now =  datetime.datetime.now()
-    today = now.day
+    print("command tommorow")
     today_weekday = datetime.datetime.today().weekday()
-    hour = now.hour
     if today_weekday == 0:
         bot.send_message(message.chat.id,
         """Вівторок
@@ -127,6 +113,7 @@ def handle_command(message):
 
 @bot.message_handler(commands = ['week'])
 def handle_command(message):
+    print("command week")
     week_number = datetime.date.today().isocalendar()[1] # weekNumber (isocalendar()[1] 1 - means week number)
     if(week_number%2==1):
         bot.send_message(message.chat.id,
@@ -192,6 +179,7 @@ def handle_command(message):
 
 @bot.message_handler(commands = ['nextweek'])
 def handle_command(message):
+    print("command nextweek")
     week_number = datetime.date.today().isocalendar()[1] # weekNumber (isocalendar()[1] 1 - means week number)
     if(week_number%2==0):
         bot.send_message(message.chat.id,
@@ -257,10 +245,7 @@ def handle_command(message):
 
 @bot.message_handler(commands = ['timetable'])
 def handle_command(message):
-    now =  datetime.datetime.now()
-    today = now.day
-    today_weekday = datetime.datetime.today().weekday()
-    hour = now.hour
+    print("command timetable")
     bot.send_message(message.chat.id,"""1) 8:40 - 10:15
 2) 10:35 - 12:10
 3) 12:20 - 13:55
@@ -268,6 +253,7 @@ def handle_command(message):
 
 @bot.message_handler(commands = ['left'])
 def handle_command(message):
+    print("command left")
     now =  datetime.datetime.now()
     hour = now.hour+2
     time_abs_sec = hour*7200 + now.minute*60 + now.second
@@ -316,7 +302,7 @@ def handle_command(message):
     else:
         bot.send_message(message.chat.id,"Зараз немає пар")
 
-    delta =datetime.datetime(datetime.datetime.now().year,datetime.datetime.now().month,
+    """delta =datetime.datetime(datetime.datetime.now().year,datetime.datetime.now().month,
                              datetime.datetime.now().day,18,0,0,0) - datetime.datetime.today()
     delta = delta.seconds - 7200
     hours = str(delta//3600)
@@ -324,7 +310,7 @@ def handle_command(message):
     seconds = str(delta - 3600*int(hours)-60*int(minutes))
 
     bot.send_message(message.chat.id,"Тест на 18 год. Залишилось " + hours + " годин " + minutes + " хвилин " +  seconds + " секунд")
-
+    """
 
 
 
@@ -338,9 +324,7 @@ def handle_text(message):
         bot.send_message(message.chat.id,"Linux")
     print("Пришел текст")
 
-"""@bot.message_handler(content_types=['sticker'])
-def handle_sticker(message):
-"""
+
 
 @bot.message_handler(content_types=['sticker'])
 def upd(message):
@@ -353,7 +337,9 @@ def upd(message):
     last_upd = upd[-1]
     print(last_upd)
 
-
+"""@bot.message_handler(content_types=['sticker'])
+def handle_sticker(message):
+"""
 """
 @bot.message_handler(content_types=['text'])
 def upd(message):
@@ -365,7 +351,6 @@ def upd(message):
 """
 while(True):
     try:
-
         if __name__ == "__main__":
             bot.polling(none_stop=True,interval=0)
     except:
