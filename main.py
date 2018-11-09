@@ -323,7 +323,7 @@ def handle_text(message):
     today_weekday = datetime.datetime.today().weekday()
     hour = now.hour
     if message.text == "Windows":
-        bot.send_message(message.chat.id,"*Linux*",parse_mode=telegram.ParseMode.MARKDOWN)
+        bot.send_message(chat_id=message.chat.id,text="*Linux*",parse_mode=telegram.ParseMode.MARKDOWN)
     print("Пришел текст")
 
 
