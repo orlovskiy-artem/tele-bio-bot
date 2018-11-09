@@ -315,7 +315,7 @@ def handle_command(message):
     """
 
 
-
+"""
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
     now =  datetime.datetime.now()
@@ -325,7 +325,7 @@ def handle_text(message):
     if message.text == "Windows":
         bot.send_message(chat_id=message.chat.id,text="*Linux*",parse_mode=telegram.ParseMode.MARKDOWN)
     print("Пришел текст")
-
+"""
 
 
 @bot.message_handler(content_types=['sticker'])
