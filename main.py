@@ -17,6 +17,7 @@ today = now.day
 today_weekday = datetime.datetime.today().weekday()
 hour = now.hour
 
+
 @bot.message_handler(commands = ['start'])
 def handle_command(message):
     bot.send_message(message.chat.id,"""Добрий день!
