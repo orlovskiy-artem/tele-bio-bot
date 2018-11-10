@@ -1,4 +1,3 @@
-
 import telebot
 import constants
 import datetime
@@ -11,13 +10,11 @@ last_upd = upd[-1]
 message_from_user = last_upd.message
 print(message_from_user)
 
-now_start = datetime.datetime.now()
+"""now_start = datetime.datetime.now()
 now =  datetime.datetime.now()
 today = now.day
 today_weekday = datetime.datetime.today().weekday()
-hour = now.hour
-
-
+hour = now.hour"""
 
 @bot.message_handler(commands = ['start'])
 def handle_command(message):
@@ -38,80 +35,165 @@ def handle_command(message):
 def handle_command(message):
     print("command today")
     today_weekday = datetime.datetime.today().weekday()
-    if today_weekday == 0:
-        bot.send_message(message.chat.id,
+    week_number = datetime.date.today().isocalendar()[1]
+    if(week_number%2==1):
+        if today_weekday == 0:
+            bot.send_message(message.chat.id,
         """Понеділок
     1) Іноземна мова, ауд. 602, 603 ММФ
     2) Іноземна мова, ауд. 602, 603 ММФ
-    3) Екологія (сем), ауд. 602 ММФ/Українська мова (лек), з 24.09.18, ауд. 602 ММФ
-    4) Хімія (пр), 2 підгрупа, ауд. 31 лаб. корп. БФ/Хімія лаб корпус ННЦ, ауд. 31""")
-    if today_weekday == 1:
-        bot.send_message(message.chat.id,"""Вівторок
+    3) Екологія (сем), ауд. 602 ММФ
+    4) Хімія (пр), 2 підгрупа, ауд. 31 лаб. корп. БФ""")
+
+        if today_weekday == 1:
+            bot.send_message(message.chat.id,"""Вівторок
     1) Хімія (пр), 1 підгрупа, ауд. 31 лаб. корп. БФ
-    2) 
+    
     3) Хімія (лек), ауд. 610 ММФ""")
 
-    if today_weekday == 2:
-        bot.send_message(message.chat.id,"""Середа
+        if today_weekday == 2:
+            bot.send_message(message.chat.id,"""Середа
     1) Іноземна мова, ауд. 602, 603 ММФ
     2) Українська мова (пр), ауд. 602 ММФ
     3) Хімія (лек)
-    4) Ботаніка (лаб), група 2, ауд. 404 БФ/хімія лаб корпус ННЦ, ауд. 31""")
+    4) Ботаніка (лаб), група 2, ауд. 404 БФ""")
 
-    if today_weekday == 3:
-        bot.send_message(message.chat.id,"""Четвер
+        if today_weekday == 3:
+            bot.send_message(message.chat.id,"""Четвер
     1) Вступ до університетських студій
     2) Екологія (лек), ауд. 212 БФ
     3) Ботаніка (лек), ауд. 411 БФ
-    4) Ботаніка (лаб), група 1, ауд. 404 БФ Цитологія (лаб), група 2, ауд. 517 БФ""")
+    4) Ботаніка (лаб), група 1, ауд. 404 БФ""")
 
-    if today_weekday == 4:
-        bot.send_message(message.chat.id,"""П'ятниця
-    (2 Тиждень) 1)Логіка (лек), ауд. 602 ММФ
+        if today_weekday == 4:
+            bot.send_message(message.chat.id,"""П'ятниця
     2) Логіка (лек), 602 ММФ
     3) Цитологія (лаб), група 1, ауд. 517 БФ
     4) Хімія лаб корпус ННЦ, ауд. 31
  """)
-    if today_weekday>4:
-        bot.send_message(message.chat.id,"""
+
+        if today_weekday>4:
+            bot.send_message(message.chat.id,"""
         Радуйся! Сьогодні пар немає)
         """)
-        bot.send_sticker(message.chat.id,"CAADAgADUwADKOeIDc1_Adm2zv4cAg")
+            bot.send_sticker(message.chat.id,"CAADAgADUwADKOeIDc1_Adm2zv4cAg")
+
+    else:
+        if today_weekday == 0:
+            bot.send_message(message.chat.id,
+        """Понеділок
+    1) Іноземна мова, ауд. 602, 603 ММФ
+    2) Іноземна мова, ауд. 602, 603 ММФ
+    3) Українська мова (лек), з 24.09.18, ауд. 602 ММФ
+    4) Хімія лаб корпус ННЦ, ауд. 31""")
+
+        if today_weekday == 1:
+            bot.send_message(message.chat.id,"""Вівторок
+    1) Хімія (пр), 1 підгрупа, ауд. 31 лаб. корп. БФ
+    
+    3) Хімія (лек), ауд. 610 ММФ""")
+
+        if today_weekday == 2:
+            bot.send_message(message.chat.id,"""Середа
+    1) Іноземна мова, ауд. 602, 603 ММФ
+    2) Українська мова (пр), ауд. 602 ММФ
+    3) Хімія (лек)
+    4) Хімія лаб корпус ННЦ, ауд. 31""")
+
+        if today_weekday == 3:
+            bot.send_message(message.chat.id,"""Четвер
+    1) Вступ до університетських студій
+    2) Екологія (лек), ауд. 212 БФ
+    3) Ботаніка (лек), ауд. 411 БФ
+    4) Цитологія (лаб), група 2, ауд. 517 БФ""")
+
+        if today_weekday == 4:
+            bot.send_message(message.chat.id,"""П'ятниця
+    1) Логіка (лек), ауд. 602 ММФ
+    2) Логіка (лек), 602 ММФ
+    3) Цитологія (лаб), група 1, ауд. 517 БФ
+    4) Хімія лаб корпус ННЦ, ауд. 31
+ """)
+
+        if today_weekday>4:
+            bot.send_message(message.chat.id,"""
+        Радуйся! Сьогодні пар немає)
+        """)
+            bot.send_sticker(message.chat.id,"CAADAgADUwADKOeIDc1_Adm2zv4cAg")
 
 @bot.message_handler(commands = ['tommorow'])
 def handle_command(message):
     print("command tommorow")
     today_weekday = datetime.datetime.today().weekday()
-    if today_weekday == 0:
-        bot.send_message(message.chat.id,
-        """Вівторок
+    week_number = datetime.date.today().isocalendar()[1]
+    if(week_number%2==1):
+        if today_weekday == 0:
+            bot.send_message(message.chat.id,"""Вівторок
     1) Хімія (пр), 1 підгрупа, ауд. 31 лаб. корп. БФ
-    2) 
+    
     3) Хімія (лек), ауд. 610 ММФ""")
 
-    if today_weekday == 1:
-        bot.send_message(message.chat.id,"""Середа
+        if today_weekday == 1:
+            bot.send_message(message.chat.id,"""Середа
     1) Іноземна мова, ауд. 602, 603 ММФ
     2) Українська мова (пр), ауд. 602 ММФ
     3) Хімія (лек)
-    4) Ботаніка (лаб), група 2, ауд. 404 БФ/хімія лаб корпус ННЦ, ауд. 31""")
+    4) Ботаніка (лаб), група 2, ауд. 404 БФ""")
 
-    if today_weekday == 2:
-        bot.send_message(message.chat.id,"""Четвер
+        if today_weekday == 2:
+            bot.send_message(message.chat.id,"""Четвер
     1) Вступ до університетських студій
     2) Екологія (лек), ауд. 212 БФ
     3) Ботаніка (лек), ауд. 411 БФ
-    4) Ботаніка (лаб), група 1, ауд. 404 БФ Цитологія (лаб), група 2, ауд. 517 БФ""")
+    4) Ботаніка (лаб), група 1, ауд. 404 БФ""")
 
-    if today_weekday == 3:
-        bot.send_message(message.chat.id,"""П'ятниця
-    (2 Тиждень) 1)Логіка (лек), ауд. 602 ММФ
+        if today_weekday == 3:
+            bot.send_message(message.chat.id,"""П'ятниця
     2) Логіка (лек), 602 ММФ
     3) Цитологія (лаб), група 1, ауд. 517 БФ
+    4) Хімія лаб корпус ННЦ, ауд. 31
+ """)
+
+        if today_weekday>3:
+            bot.send_message(message.chat.id,"""
+        Радуйся! Сьогодні пар немає)
+        """)
+            bot.send_sticker(message.chat.id,"CAADAgADUwADKOeIDc1_Adm2zv4cAg")
+
+    else:
+        if today_weekday == 0:
+            bot.send_message(message.chat.id,"""Вівторок
+    1) Хімія (пр), 1 підгрупа, ауд. 31 лаб. корп. БФ
+    
+    3) Хімія (лек), ауд. 610 ММФ""")
+
+        if today_weekday == 1:
+            bot.send_message(message.chat.id,"""Середа
+    1) Іноземна мова, ауд. 602, 603 ММФ
+    2) Українська мова (пр), ауд. 602 ММФ
+    3) Хімія (лек)
     4) Хімія лаб корпус ННЦ, ауд. 31""")
 
-    if today_weekday >= 3:
-         bot.send_sticker(message.chat.id,'CAADAgADUwADKOeIDc1_Adm2zv4cAg')
+        if today_weekday == 2:
+            bot.send_message(message.chat.id,"""Четвер
+    1) Вступ до університетських студій
+    2) Екологія (лек), ауд. 212 БФ
+    3) Ботаніка (лек), ауд. 411 БФ
+    4) Цитологія (лаб), група 2, ауд. 517 БФ""")
+
+        if today_weekday == 3:
+            bot.send_message(message.chat.id,"""П'ятниця
+    1) Логіка (лек), ауд. 602 ММФ
+    2) Логіка (лек), 602 ММФ
+    3) Цитологія (лаб), група 1, ауд. 517 БФ
+    4) Хімія лаб корпус ННЦ, ауд. 31
+ """)
+
+        if today_weekday>3:
+            bot.send_message(message.chat.id,"""
+        Радуйся! Сьогодні пар немає)
+        """)
+            bot.send_sticker(message.chat.id,"CAADAgADUwADKOeIDc1_Adm2zv4cAg")
 
 @bot.message_handler(commands = ['week'])
 def handle_command(message):
@@ -127,7 +209,7 @@ def handle_command(message):
     
 Вівторок
     1) Хімія (пр), 1 підгрупа, ауд. 31 лаб. корп. БФ
-    2) 
+    
     3) Хімія (лек), ауд. 610 ММФ
 
 Середа
@@ -157,7 +239,7 @@ def handle_command(message):
     
 Вівторок
     1) Хімія (пр), 1 підгрупа, ауд. 31 лаб. корп. БФ
-    2) 
+    
     3) Хімія (лек), ауд. 610 ММФ
 
 Середа
@@ -173,7 +255,7 @@ def handle_command(message):
     4) Цитологія (лаб), група 2, ауд. 517 БФ
     
 П'ятниця
-    1)Логіка (лек), ауд. 602 ММФ
+    1) Логіка (лек), ауд. 602 ММФ
     2) Логіка (лек), 602 ММФ
     3) Цитологія (лаб), група 1, ауд. 517 БФ
     4) Хімія лаб корпус ННЦ, ауд. 31
@@ -193,7 +275,7 @@ def handle_command(message):
     
 Вівторок
     1) Хімія (пр), 1 підгрупа, ауд. 31 лаб. корп. БФ
-    2) 
+    
     3) Хімія (лек), ауд. 610 ММФ
 
 Середа
@@ -223,7 +305,7 @@ def handle_command(message):
     
 Вівторок
     1) Хімія (пр), 1 підгрупа, ауд. 31 лаб. корп. БФ
-    2) 
+    
     3) Хімія (лек), ауд. 610 ММФ
 
 Середа
@@ -248,10 +330,10 @@ def handle_command(message):
 @bot.message_handler(commands = ['timetable'])
 def handle_command(message):
     print("command timetable")
-    bot.send_message(message.chat.id,"""1) 8:40 - 10:15
-2) 10:35 - 12:10
-3) 12:20 - 13:55
-4) 14:05 - 15:40""")
+    bot.send_message(message.chat.id,"""1 пара 8:40 - 10:15
+2 пара 10:35 - 12:10
+3 пара 12:20 - 13:55
+4 пара 14:05 - 15:40""")
 
 @bot.message_handler(commands = ['left'])
 def handle_command(message):
