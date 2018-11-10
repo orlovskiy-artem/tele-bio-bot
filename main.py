@@ -409,7 +409,6 @@ def handle_text(message):
     print("Пришел текст")
 """
 
-
 @bot.message_handler(content_types=['sticker'])
 def upd(message):
     now =  datetime.datetime.now()
