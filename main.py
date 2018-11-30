@@ -21,8 +21,7 @@ def handle_command(message):
     bot.send_message(message.chat.id,"""Добрий день!
 Вас вітає бот (тільки для біологів). Я працюю з певними командами. Натисніть "/" для їх перегляду. Приємного Вам користування.
     
-(Бот знаходиться на стадії розробки. Будь-яке хейтерство не є можливим.
-Всю конструтивну критику та побажання писати розробнику бота.""")
+(Бот знаходиться на стадії розробки. Всю конструтивну критику та побажання писати розробнику бота.""")
     print("Command start")
 
 @bot.message_handler(commands = ['help'])
@@ -124,6 +123,9 @@ def handle_command(message):
 П'ятниця (07.12)
     12:20 модуль цитологія (1 гр)
  """)
+    else:
+        bot.send_message(message.chat.id,"""Поки шикуєм""")
+
 
 
 @bot.message_handler(commands = ['nextweek'])
@@ -151,6 +153,8 @@ def handle_command(message):
 П'ятниця (07.12)
     12:20 модуль цитологія (1 гр)
  """)
+    else:
+        bot.send_message(message.chat.id,"""Поки шикуєм""")
 
 
 @bot.message_handler(commands = ['timetable'])
