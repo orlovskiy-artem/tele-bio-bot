@@ -1,4 +1,4 @@
-import telebot
+import pyTelegrambotApi
 import constants
 import datetime
 
